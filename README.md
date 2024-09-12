@@ -1,6 +1,4 @@
-Here's the modified `README.md` file without the License section and with an updated Usage section:
 
----
 
 # Predicting Admission into UCLA
 

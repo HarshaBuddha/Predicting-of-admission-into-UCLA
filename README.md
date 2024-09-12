@@ -64,7 +64,7 @@ pip install pandas numpy scikit-learn matplotlib seaborn jupyter
 
 4. **Open the Jupyter notebook**:
    ```bash
-   jupyter notebook Predicting-of-admission-into-UCLA\Predicting Admission into UCLA.ipynb
+   jupyter notebook Predicting-of-admission-into-UCLA/Predicting Admission into UCLA.ipynb
    ```
 
 5. **Run the notebook cells** to train and evaluate the model.

@@ -166,10 +166,6 @@ Now, visit `http://localhost:5173` to use the predictor!
 ✅ Real-time validation
 ---
 
-## 📜 License
-This project is licensed under the MIT License.
-
----
 
 ## 🤝 Contributing
 Contributions are welcome! Feel free to open an issue or submit a pull request.

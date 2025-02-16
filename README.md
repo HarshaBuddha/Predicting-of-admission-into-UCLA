@@ -1,90 +1,59 @@
-
-
 # Predicting Admission into UCLA
 
-This repository contains a machine learning model that predicts the likelihood of admission into UCLA based on various applicant features. The model is developed using Python and the Jupyter notebook environment.
+This repository contains a complete web application that predicts the likelihood of admission into UCLA based on various applicant features. The project includes a **frontend (React.js)**, **backend (Express.js)**, and **Flask API** for making predictions using a trained machine learning model.
 
 ## Table of Contents
 
 - [Project Overview](#project-overview)
-- [Dataset](#dataset)
-- [Installation](#installation)
+- [Folder Structure](#folder-structure)
+- [Installation and Setup](#installation-and-setup)
 - [Usage](#usage)
-- [Model](#model)
+- [Model Details](#model-details)
 - [Results](#results)
 - [Contributing](#contributing)
 
 ## Project Overview
 
-The goal of this project is to predict the admission chances of students applying to UCLA. The project involves data preprocessing, exploratory data analysis (EDA), model selection, and evaluation.
+The UCLA Admission Predictor helps students estimate their chances of admission based on input features such as GRE scores, TOEFL scores, GPA, and research experience. The model was trained using machine learning techniques and deployed via a REST API.
 
-## Dataset
-
-The dataset includes several features such as GRE scores, GPA, and other academic indicators that are typically used in the admission process. The dataset is expected to be clean and ready for analysis.
-
-## Installation
-
-To run the notebook and experiment with the model, you'll need to install the necessary dependencies.
-
-```bash
-pip install -r requirements.txt
+## Folder Structure
+```
+Prediction-of-admission-into-UCLA/
+│── README.md                          # Project overview
+│── app/
+│   ├── ucla-admission-frontend/       # React frontend
+│   │   ├── README.md                  # Instructions for frontend setup
+│   ├── express-backend/               # Express.js backend
+│   │   ├── README.md                  # Instructions for backend setup
+│   ├── Flask/                         # Flask API
+│   │   ├── README.md                  # Instructions for Flask API setup
+│── admission_predict.csv              # (Optional) Dataset used for training
+│── model/                             # Trained machine learning model
+│── Predicting_Admission_Complete.ipynb     #Complete File
 ```
 
-Ensure that you have Python 3.x installed along with the following libraries:
+## Installation and Setup
+Each part of the project has its own setup instructions. Navigate to the respective folders and follow the installation guides in their README files:
 
-- `pandas`
-- `numpy`
-- `scikit-learn`
-- `matplotlib`
-- `seaborn`
-- `jupyter`
-
-You can install these libraries using pip:
-
-```bash
-pip install pandas numpy scikit-learn matplotlib seaborn jupyter
-```
+- **Frontend (React.js):** `cd app/` → Follow `README.md`
+- **Backend (Express.js):** `cd app/` → Follow `README.md`
+- **Flask API (Machine Learning Model):** `cd app/` → Follow `README.md`
 
 ## Usage
+Once all services are running:
+- Open the frontend in a browser.
+- Enter applicant details.
+- Click **Predict** to get an admission probability.
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/UCLA-Admission-Prediction.git
-   ```
-   
-2. **Navigate to the project directory**:
-   ```bash
-   cd Predicting-of-admission-into-UCLA
-   ```
-   
-3. **Install the dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Open the Jupyter notebook**:
-   ```bash
-   jupyter notebook Predicting-of-admission-into-UCLA/Predicting Admission into UCLA.ipynb
-   ```
-
-5. **Run the notebook cells** to train and evaluate the model.
-
-## Model
-
-The notebook explores various machine learning models, including:
-
-- Linear Regression
-- Decision Trees
-- Random Forest
-- Support Vector Machine (SVM)
-- Neural Networks
-
-The final model selection is based on accuracy and other performance metrics.And it is Linear Regression here.
+## Model Details
+The prediction model was trained using:
+- **Features:** GRE, TOEFL, University Rating, SOP, LOR, CGPA, Research
+- **Final Model:** Linear Regression (best accuracy after hyperparameter tuning)
+- **Evaluation Metrics:** MSE, R2 Score
 
 ## Results
-
-The results section provides an analysis of the model's performance. This includes accuracy, precision, recall, F1 score, and any visualizations that help in understanding the model's predictions.
+The model provides a probability score (0-100%) indicating the likelihood of admission.
 
 ## Contributing
+Contributions are welcome! Open an issue or submit a pull request if you want to improve the project.
 
-Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.

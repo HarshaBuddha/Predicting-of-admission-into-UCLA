@@ -1,0 +1,27 @@
+# Node.js (Frontend - React)
+app/ucla-admission-frontend/node_modules/
+app/ucla-admission-frontend/.vite/
+app/ucla-admission-frontend/.next/
+app/ucla-admission-frontend/dist/
+app/ucla-admission-frontend/.env.local
+app/ucla-admission-frontend/src/App.css
+
+# Python (Flask Backend)
+app/Flask/__pycache__/
+app/Flask/venv/
+app/Flask/.env
+
+#Express backend
+app/express-backend/node_modules
+
+
+# General
+*.log
+*.pyc
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Git Ignore for Env Files
+.env

@@ -1,0 +1,6 @@
+Flask
+Flask-CORS
+Flask-RESTful
+scikit-learn
+pandas
+numpy

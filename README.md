@@ -28,7 +28,6 @@ Prediction-of-admission-into-UCLA/
 │   ├── Flask/                         # Flask API
 │   │   ├── README.md                  # Instructions for Flask API setup
 │── admission_predict.csv              # (Optional) Dataset used for training
-│── model/                             # Trained machine learning model
 │── Predicting_Admission_Complete.ipynb     #Complete File
 ```
 

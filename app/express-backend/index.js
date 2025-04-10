@@ -1,34 +1,43 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const axiosRetry = require('axios-retry').default;
 require('dotenv').config();
 
 const app = express();
 const FLASK_API_URL = process.env.FLASK_API_URL;
 
-app.use(express.json());  // Middleware to parse JSON
-app.use(cors());  // Allow frontend requests
+// Enable retry with exponential backoff (3 retries)
+axiosRetry(axios, {
+  retries: 3,
+  retryDelay: axiosRetry.exponentialDelay,
+});
 
-//Sample Route
-app.get('/',(req,res)=>{
-    res.json({'message':'Hello all this is an express app'})
-})
+app.use(express.json()); // Parse JSON
+app.use(cors()); // Enable CORS
 
+// Sample route
+app.get('/', (req, res) => {
+  res.json({ message: 'Hello all this is an express app' });
+});
 
-// Route to handle prediction requests
+// Prediction route
 app.post('/predict', async (req, res) => {
-    try {
-        const userInput = req.body;  // Get input from frontend
-        const response = await axios.post(FLASK_API_URL, userInput); // Send to Flask API
-        res.json(response.data); // Return Flask API response to frontend
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ error: 'Failed to fetch prediction' });
+  try {
+    const userInput = req.body;
+    console.log("Sending data to Flask API at:", FLASK_API_URL);
+    const response = await axios.post(FLASK_API_URL, userInput);
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error calling Flask API:', error.message);
+    if (error.response) {
+      console.error('Response data:', error.response.data);
     }
+    res.status(500).json({ error: 'Failed to fetch prediction from Flask' });
+  }
 });
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Express server running on port ${PORT}`);
 });
-

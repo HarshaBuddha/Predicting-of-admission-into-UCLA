@@ -4,7 +4,6 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT ;
 const FLASK_API_URL = process.env.FLASK_API_URL;
 
 app.use(express.json());  // Middleware to parse JSON
@@ -28,7 +27,8 @@ app.post('/predict', async (req, res) => {
     }
 });
 
-// Start Express server
-app.listen(PORT, () => {
-    console.log(`Express server running on http://127.0.0.1:${PORT}`);
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
+

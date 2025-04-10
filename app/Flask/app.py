@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import joblib
 import numpy as np
 import pandas as pd
 
 app = Flask(__name__)
+CORS(app)
 
 # Load the trained model and scaler
 model = joblib.load("model.pkl")  # Load your trained model
@@ -18,27 +20,24 @@ def predict():
     try:
         # Get JSON data from the request
         data = request.json
-        
-        # Convert input values to float to handle string inputs
+
+        # Convert input values to float
         for key in data:
             data[key] = float(data[key])
-        
-        # Convert data to DataFrame
+
+        # Convert to DataFrame
         columns = ["GRE", "TOEFL", "University Rating", "SOP", "LOR", "CGPA", "Research"]
         input_df = pd.DataFrame([data], columns=columns)
 
-        # Standardize input
+        # Standardize and predict
         input_scaled = scaler.transform(input_df)
-
-        # Predict
-        prediction = model.predict(input_scaled)[0] * 100  # Convert to percentage
-        
+        prediction = model.predict(input_scaled)[0] * 100
         prediction = max(0, min(100, prediction))
 
         return jsonify({'admission_chance': round(prediction, 2)})
-    
+
     except Exception as e:
         return jsonify({'error': str(e)})
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)  # By default, port number will be 5000
+    app.run(debug=True, port=5000)

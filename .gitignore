@@ -4,7 +4,6 @@ app/ucla-admission-frontend/.vite/
 app/ucla-admission-frontend/.next/
 app/ucla-admission-frontend/dist/
 app/ucla-admission-frontend/.env.local
-app/ucla-admission-frontend/src/App.css
 
 # Python (Flask Backend)
 app/Flask/__pycache__/
@@ -22,6 +21,7 @@ app/express-backend/node_modules
 .vscode/
 .idea/
 *.swp
+node_modules
 
 # Git Ignore for Env Files
 .env

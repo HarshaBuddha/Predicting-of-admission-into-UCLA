@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npx @tailwindcss/cli -i ./src/input.css -o ./src/App.css",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "tailwind": "npx @tailwindcss/cli -i ./src/input.css -o ./src/App.css --watch"
+    "tailwind": "npx @tailwindcss/cli -i ./src/input.css -o ./src/App.css --watch" 
   },
   "dependencies": {
     "@radix-ui/react-progress": "^1.1.2",

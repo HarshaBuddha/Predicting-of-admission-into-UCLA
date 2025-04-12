@@ -26,7 +26,7 @@ app.post('/predict', async (req, res) => {
   try {
     const userInput = req.body;
     console.log("Sending data to Flask API at:", FLASK_API_URL);
-    const response = await axios.post(FLASK_API_URL, userInput);
+    const response = await axios.post(FLASK_API_URL, userInput,{timeout:50000 });
     res.json(response.data);
   } catch (error) {
     console.error('Error calling Flask API:', error.message);

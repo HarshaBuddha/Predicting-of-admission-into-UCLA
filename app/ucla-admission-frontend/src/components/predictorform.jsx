@@ -40,7 +40,7 @@ const Predictor = () => {
       const formattedData = Object.fromEntries(
         Object.entries(formData).map(([key, value]) => [key, parseFloat(value)])
       );
-      const response = await axios.post(`${API_URL}/predict`, formattedData,{timeout:50000});
+      const response = await axios.post(`${API_URL}/predict`, formattedData,{timeout:100000});
       setPrediction(response.data.admission_chance);
       toast.success("Prediction received!");
     } catch (error) {

@@ -16,7 +16,7 @@ const Predictor = () => {
   const [loading, setLoading] = useState(false);
   const [prediction, setPrediction] = useState("");
 
-  const API_URL = import.meta.env.EXP_API_URL ;
+  const API_URL = import.meta.env.VITE_EXP_API_URL ;
 
   const handleChange = (e) => {
     setFormData((prevFormData) => ({ ...prevFormData, [e.target.name]: e.target.value }));
